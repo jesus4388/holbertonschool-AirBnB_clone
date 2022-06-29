@@ -9,11 +9,16 @@ import time
 
 class BaseModel:
     '''creating BaseModel'''
-    def __init__(self):
-        new_id = uuid.uuid4()
-        self.id = str(new_id)
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+    def __init__(self, *args, **kwargs):
+        if kwargs is not None and len(kwargs) != 0:
+            for arg in kwargs:
+                if (arg != "__class__"):
+                    setattr(self, arg, kwargs[arg])
+        else:
+            new_id = uuid.uuid4()
+            self.id = str(new_id)
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         '''defining __str__'''
