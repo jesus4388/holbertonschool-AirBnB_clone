@@ -22,4 +22,4 @@ The following files are programs or functions in C:
 | Name | Contact |
 | ---- | ------- |
 | Alejandro Reginensi | reginensia@gmail.com |
-| Jesús Hernandez | sebastiancazenave@gmail.com |
+| Jesús Hernandez | jesusmanuel1843@gmail.com |
