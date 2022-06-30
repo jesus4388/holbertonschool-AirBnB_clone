@@ -1,35 +1,36 @@
 #!/usr/bin/python3
-
-'''BaseModel that defines all common attributes/methods for other classes'''
+"""Airbnb clone project"""
 
 import uuid
-from datetime import datetime
-import time
-
+import datetime
+import models
 
 class BaseModel:
-    '''creating BaseModel'''
+    """Base class"""
     def __init__(self, *args, **kwargs):
+        '''defining init'''
         if kwargs is not None and len(kwargs) != 0:
-            for arg in kwargs:
-                if (arg != "__class__"):
-                    setattr(self, arg, kwargs[arg])
+            for key, value in kwargs.items():
+                if key != "__class__":
+                    if key == "created_at" or key == "updated_at":
+                        value = datetime.datetime.fromisoformat(value)
+                    setattr(self, key, value)
         else:
-            new_id = uuid.uuid4()
-            self.id = str(new_id)
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
+            models.storage.new(self)
     def __str__(self):
-        '''defining __str__'''
-        return (f"[<{__class__.__name__}>] <{self.id}> <{self.__dict__}>")
-
+        '''defining str'''
+        return(f"[BaseModel] ({self.id}) {self.__dict__}")
     def save(self):
         '''defining save'''
-        self.updated_at = datetime.now()
-
+        self.updated_at = datetime.datetime.now()
+        models.storage.save()
     def to_dict(self):
         '''defining to_dict'''
-        dictio = self.__dict__.copy()
-        dictio["__class__"] = __class__.__name__
-        return(dictio)
+        new = {'__class__': __class__.__name__}
+        new2 = {**self.__dict__, **new}
+        new2["created_at"] = new2["created_at"].isoformat()
+        new2["updated_at"] = new2["updated_at"].isoformat()
+        return new2
