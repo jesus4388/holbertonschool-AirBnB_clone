@@ -5,6 +5,7 @@
 import cmd
 import string, sys
 from models.base_model import BaseModel
+from models import storage
 
 class HBNBCommand(cmd.Cmd):
     '''defining HBNBCommand'''
@@ -44,13 +45,38 @@ class HBNBCommand(cmd.Cmd):
             x.save()
             print(x.id)
 
-    def do_show(self, arg):
-        if arg == "":
-            print ("** class name missing **")
-        elif arg != "BaseModel":
-            print ("** class doesn't exist **")
+    def do_show(self, args):
+        tokens = args.split()
+        if len(tokens) == 0:
+            print("** class name missing **")
+        elif (tokens[0] not in storage.class_list()):
+            print("** class doesn't exist **")
+        elif tokens[1] is None:
+            print("** instance id missing **")
         else:
-            print (BaseModel.__class__.__name__)
+            x = tokens[0] + "." + tokens[1]
+            dic = storage.all()
+            try:
+                print(dic[x])
+            except Exception:
+                print("** no instance found **")
+
+    def do_destroy(self, args):
+        tokens = args.split()
+        if len(tokens) == 0:
+            print("** class name missing **")
+        elif (tokens[0] not in storage.class_list()):
+            print("** class doesn't exist **")
+        elif tokens[1] is None:
+            print("** instance id missing **")
+        else:
+            x = tokens[0] + "." + tokens[1]
+            dic = storage.all()
+            try:
+                del(dic[x])
+            except Exception:
+                print("** no instance found **")	
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
