@@ -38,3 +38,8 @@ class FileStorage:
                 copy = json.load(fil)
             for y, o in copy.items():
                 self.__objects[y] = BaseModel(**o)
+
+    @staticmethod
+    def class_list():
+        """list of all classes"""
+        return ["BaseModel", "User"]

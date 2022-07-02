@@ -6,6 +6,7 @@ import cmd
 import string, sys
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     '''defining HBNBCommand'''
@@ -71,11 +72,20 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             x = tokens[0] + "." + tokens[1]
-            dic = storage.all()
+            dic = storaige.all()
             try:
                 del(dic[x])
             except Exception:
-                print("** no instance found **")	
+                print("** no instance found **")
+
+    def do_all(self, args):
+        tokens = args.split()
+        if (tokens[0] not in storage.class_list()):
+            print("** class doesn't exist **")
+        else:
+            x = tokens[0]
+            dic = storage.all()
+            print(dic[x])
 
 
 if __name__ == '__main__':
