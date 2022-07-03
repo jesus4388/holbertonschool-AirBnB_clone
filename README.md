@@ -12,10 +12,10 @@ The following files are programs or functions in C:
 
 | Filename | Description |
 | -------- | ----------- |
-| `0-bubble_sort.c` | Function that sorts an array of integers in ascending order using the Bubble sort algorithm |
-| `1-insertion_sort_list.c` | Function that sorts a doubly linked list of integers in ascending order using the Insertion sort algorithm |
-| `2-selection_sort.c` | Function that sorts an array of integers in ascending order using the Selection sort algorithm |
-| `3-quick_sort.c` | Function that sorts an array of integers in ascending order using the Quick sort algorithm |
+| `base_model.py` | Class BaseModel that defines all common attributes/methods for other classes |
+| `file_storage` | Class FileStorage that serializes instances to a JSON file and deserializes JSON file to instances |
+| `console.py` | Program that contains the entry point of the command interpreter |
+| `state.py` | Class that inherits from BaseModel, there are other classes such as: `city.py`, `amenity.py`, `place.py` and `review.py` |
 
 ## AUTHORS:
 
