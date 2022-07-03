@@ -38,9 +38,11 @@ class test_console(unittest.TestCase):
         self.assertEqual("", "")
 
     def test_EOF(self):
+        '# check EOF'
         with patch ("sys.stdout", new=StringIO()) as output:
             pass
 
     def test_exit(self):
+        '# check exit'
         with patch ("sys.stdout", new=StringIO()) as output:
             pass
