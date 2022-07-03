@@ -13,10 +13,7 @@ from models.place import Place
 from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
-    """""defining HBNBCommand
-
-        cmd.Cmd.__init__(self)
-        self.prompt = '(hbnb) '"""
+    """""defining HBNBCommand"""
 
     if sys.stdin and sys.stdin.isatty():
         prompt = "(hbnb) "
@@ -28,19 +25,19 @@ class HBNBCommand(cmd.Cmd):
        '''Quit command to exit the program'''
        return True
 
-    """" def help_quit(self):
+    def help_quit(self):
         '''defining help quit'''
         print ("syntax: quit"),
-        print ("-- terminates the application")"""
+        print ("-- terminates the application")
 
     def do_EOF(self, arg):
         '''EOF command to exit the program'''
         return True
 
-    """ def help_EOF(self):
+    def help_EOF(self):
         '''defining help EOF'''
         print ("syntax: EOF"),
-        print ("-- terminates the application") """
+        print ("-- terminates the application")
 
     def emptyline(self):
         ''' Pass on empty line'''
