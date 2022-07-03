@@ -58,6 +58,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, args):
+        '# Prints the string representation of an instance'
         tokens = args.split()
         if len(tokens) == 0:
             print("** class name missing **")
@@ -77,6 +78,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, args):
+        '# delete an instance'
         tokens = args.split()
         if len(tokens) == 0:
             print("** class name missing **")
