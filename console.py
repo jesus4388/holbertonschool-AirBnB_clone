@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 ''' contains the entry point of the command interpreter'''
 
 import cmd
@@ -20,22 +19,27 @@ class HBNBCommand(cmd.Cmd):
         self.prompt = '(hbnb) '
 
     def do_quit(self, arg):
-       '''defining quit'''
-       sys.exit(1)
+       '''Quit command to exit the program'''
+       return True
 
-    def help_quit(self):
+    """" def help_quit(self):
         '''defining help quit'''
         print ("syntax: quit"),
-        print ("-- terminates the application")
+        print ("-- terminates the application")"""
 
     def do_EOF(self, arg):
-        '''defining EOF'''
-        sys.exit(1)
+        '''EOF command to exit the program'''
+        return True
 
-    def help_EOF(self):
+    """ def help_EOF(self):
         '''defining help EOF'''
         print ("syntax: EOF"),
-        print ("-- terminates the application")
+        print ("-- terminates the application") """
+
+    def emptyline(self):
+        ''' Pass on empty line'''
+        return
+        
 
     def do_create(self, arg):
         """
