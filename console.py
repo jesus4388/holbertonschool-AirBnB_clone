@@ -20,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
         prompt = "(hbnb) "
 
     else:
-        prompt = "(hbnb)\n"
+        prompt = "(hbnb) \n"
 
     def do_quit(self, arg):
         '''Quit command to exit the program'''
@@ -140,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
             x = str(tokens[0]) + "." + str(tokens[1])
             dic = storage.all()
             if x not in dic:
-                print('** on instance found **')
+                print("** on instance found **")
                 return
             else:
                 arg2 = str(tokens[2])
