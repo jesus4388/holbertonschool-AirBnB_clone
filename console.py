@@ -76,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif (tokens[0] not in storage.class_list()):
             print("** class doesn't exist **")
-        elif tokens[1] is None:
+        elif len(tokens) < 2:
             print("** instance id missing **")
         else:
             x = tokens[0] + "." + tokens[1]
