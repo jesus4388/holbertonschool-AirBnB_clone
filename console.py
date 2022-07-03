@@ -13,13 +13,12 @@ from models.place import Place
 from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
-    '''defining HBNBCommand'''
-   """ def __init__(self):
-        '''defining init'''
+    """""defining HBNBCommand
+
         cmd.Cmd.__init__(self)
         self.prompt = '(hbnb) '"""
 
-    if sys.stidin and sys.stdin.isatty():
+    if sys.stdin and sys.stdin.isatty():
         prompt = "(hbnb) "
 
     else:
