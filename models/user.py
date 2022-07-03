@@ -2,11 +2,10 @@
 
 """ class User that inherits from BaseModel"""
 
-from models
+from models.base_model import BaseModel
 
 
-class User(models.base_model.BaseModel):
-    
+class User:
     '''defining user'''
     email = ""
     password = ""
