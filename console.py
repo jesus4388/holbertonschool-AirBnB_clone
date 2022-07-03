@@ -46,9 +46,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        """
-        create class name
-        """
+        """ create class name """
         if len(arg) == 0:
             print("** class name missing **")
             return
@@ -72,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
         else:
-            x = tokens[0] + "." + tokens[1]
+            x = str(tokens[0]) + "." + str(tokens[1])
             dic = storage.all()
             try:
                 print(dic[x])
