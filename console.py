@@ -3,6 +3,7 @@
 
 import cmd
 import string, sys
+import sys
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -13,10 +14,16 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     '''defining HBNBCommand'''
-    def __init__(self):
+   """ def __init__(self):
         '''defining init'''
         cmd.Cmd.__init__(self)
-        self.prompt = '(hbnb) '
+        self.prompt = '(hbnb) '"""
+
+    if sys.stidin and sys.stdin.isatty():
+        prompt = "(hbnb) "
+
+    else:
+        prompt = "(hbnb) \n"
 
     def do_quit(self, arg):
        '''Quit command to exit the program'''
