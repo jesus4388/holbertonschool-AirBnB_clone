@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 ''' contains the entry point of the command interpreter'''
 
+
 import cmd
-import string, sys
+import string
 import sys
 from models.base_model import BaseModel
 from models import storage
@@ -11,6 +12,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+
 
 class HBNBCommand(cmd.Cmd):
     """""defining HBNBCommand"""
@@ -22,8 +24,8 @@ class HBNBCommand(cmd.Cmd):
         prompt = "(hbnb) \n"
 
     def do_quit(self, arg):
-       '''Quit command to exit the program'''
-       return True
+        '''Quit command to exit the program'''
+        return True
 
     """ def help_quit(self):
         '''defining help quit'''
@@ -42,7 +44,6 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         ''' Pass on empty line'''
         return
-        
 
     def do_create(self, arg):
         """
@@ -139,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
             x = tokens[0] + "." + tokens[1]
             dic = storage.all()
             if x not in dic:
-                print ('** on instance found **')
+                print('** on instance found **')
                 return
             else:
                 arg2 = tokens[2]
@@ -147,7 +148,7 @@ class HBNBCommand(cmd.Cmd):
                 setattr(dic[x], arg2, arg3)
                 storage.save()
                 return
-            
-            
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
