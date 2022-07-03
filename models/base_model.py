@@ -5,6 +5,7 @@ import uuid
 import datetime
 import models
 
+
 class BaseModel:
     """Base class"""
     def __init__(self, *args, **kwargs):
@@ -20,13 +21,16 @@ class BaseModel:
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
             models.storage.new(self)
+
     def __str__(self):
         '''defining str'''
         return(f"[BaseModel] ({self.id}) {self.__dict__}")
+
     def save(self):
         '''defining save'''
         self.updated_at = datetime.datetime.now()
         models.storage.save()
+
     def to_dict(self):
         '''defining to_dict'''
         new = {'__class__': __class__.__name__}
