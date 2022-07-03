@@ -33,7 +33,7 @@ class FileStorage:
         """serializes"""
         copy = self.__objects.copy()
         for key, value in copy.items():
-            copy[key] = value.to_dict()
+            copy.update([(key, value.to_dict())])
         with open(self.__file_path, "w+") as fil:
             json.dump(copy, fil)
 
