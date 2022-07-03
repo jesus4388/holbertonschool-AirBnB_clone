@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
 
         x = str(tokens[0]) + "." + str(tokens[1])
         dic = storage.all()
-        
+
         if x in dic:
             storage.pop(x)
             storage.save()
