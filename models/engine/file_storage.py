@@ -35,7 +35,7 @@ class FileStorage:
         for key, value in self.__objects.items():
             new.update([(key, value.to_dict())])
         with open(self.__file_path, "w+") as fil:
-            json.dump(copy, fil)
+            json.dump(new, fil)
 
     def pop(self, key):
         '# pop objects'
