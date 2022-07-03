@@ -33,7 +33,7 @@ class BaseModel:
 
     def to_dict(self):
         '''defining to_dict'''
-        new = {'__class__': __class__.__name__}
+        new = {'__class__': self. __class__.__name__}
         new2 = {**self.__dict__, **new}
         new2["created_at"] = new2["created_at"].isoformat()
         new2["updated_at"] = new2["updated_at"].isoformat()
