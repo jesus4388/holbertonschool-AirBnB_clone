@@ -138,14 +138,14 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
         else:
-            x = tokens[0] + "." + tokens[1]
+            x = str(tokens[0]) + "." + str(tokens[1])
             dic = storage.all()
             if x not in dic:
                 print('** on instance found **')
                 return
             else:
-                arg2 = tokens[2]
-                arg3 = tokens[3].strip('""')
+                arg2 = str(tokens[2])
+                arg3 = str(tokens[3]).strip('""')
                 setattr(dic[x], arg2, arg3)
                 storage.save()
                 return
