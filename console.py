@@ -43,13 +43,13 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         ''' Pass on empty line'''
-        return
+        pass
 
     def do_create(self, arg):
         """
         create class name
         """
-        if not arg:
+        if len(arg) == 0:
             print("** class name missing **")
             return
         elif arg != "BaseModel":
@@ -95,6 +95,7 @@ class HBNBCommand(cmd.Cmd):
             dic = storage.all()
             try:
                 del(dic[x])
+                storage.save()
             except Exception:
                 print("** no instance found **")
 
