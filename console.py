@@ -149,7 +149,6 @@ class HBNBCommand(cmd.Cmd):
                 arg3 = str(tokens[3]).strip('""')
                 setattr(dic[x], arg2, arg3)
                 storage.save()
-                return
 
 
 if __name__ == '__main__':
