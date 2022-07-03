@@ -96,7 +96,7 @@ class HBNBCommand(cmd.Cmd):
         
         if x in dic:
             storage.pop(x)
-            storage.save
+            storage.save()
         else:
             print("** no instance found **")
 
