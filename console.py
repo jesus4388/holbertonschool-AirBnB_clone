@@ -14,7 +14,7 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
-    """""defining HBNBCommand"""
+    """ defining HBNBCommand """
 
     if sys.stdin and sys.stdin.isatty():
         prompt = "(hbnb) "
