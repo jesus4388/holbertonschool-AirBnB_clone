@@ -142,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
             x = str(tokens[0]) + "." + str(tokens[1])
             dic = storage.all()
             if x not in dic:
-                print("** on instance found **")
+                print("** no instance found **")
                 return
             else:
                 arg2 = str(tokens[2])
