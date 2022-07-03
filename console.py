@@ -20,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
         prompt = "(hbnb) "
 
     else:
-        prompt = "(hbnb) \n"
+        prompt = "(hbnb)\n"
 
     def do_quit(self, arg):
         '''Quit command to exit the program'''
