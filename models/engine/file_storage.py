@@ -47,7 +47,7 @@ class FileStorage:
             with open(self.__file_path, "r") as fil:
                 copy = json.load(fil)
             for y, o in copy.items():
-                self.__objects[y] = BaseModel(**o)
+                self.__objects[y] = eval(o["__class__"])(**o)
 
     @staticmethod
     def class_list():
