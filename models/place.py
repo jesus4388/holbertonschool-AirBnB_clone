@@ -2,8 +2,10 @@
 
 '''class Place'''
 
+import models
 
-class Place:
+
+class Place(models.base_model.BaseModel):
     '''defining place'''
     city_id = ""
     user_id = ""

@@ -2,8 +2,10 @@
 
 '''class Review'''
 
+import models
 
-class Review:
+
+class Review(models.base_model.BaseModel):
     '''defining review'''
     place_id = ""
     user_id = ""

@@ -2,7 +2,9 @@
 
 '''class State'''
 
+import models
 
-class State:
+
+class State(models.base_model.BaseModel):
     '''defining class'''
     name = ""

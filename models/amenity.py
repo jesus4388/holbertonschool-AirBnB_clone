@@ -2,7 +2,9 @@
 
 '''class amenity'''
 
+import models
 
-class Amenity:
+
+class Amenity(models.base_model.BaseModel):
     '''defining amenity'''
     name = ""

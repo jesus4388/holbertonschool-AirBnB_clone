@@ -2,8 +2,10 @@
 
 '''class city'''
 
+import models
 
-class City:
+
+class City(models.base_model.BaseModel):
     '''defining city'''
     state_id = ""
     name = ""
