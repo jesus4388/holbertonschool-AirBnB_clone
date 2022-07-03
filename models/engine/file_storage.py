@@ -31,9 +31,9 @@ class FileStorage:
 
     def save(self):
         """serializes"""
-        copy = self.__objects.copy()
-        for key, value in copy.items():
-            copy.update([(key, value.to_dict())])
+        new = {}
+        for key, value in self.__objects.items():
+            new.update([(key, value.to_dict())])
         with open(self.__file_path, "w+") as fil:
             json.dump(copy, fil)
 
