@@ -25,19 +25,19 @@ class HBNBCommand(cmd.Cmd):
        '''Quit command to exit the program'''
        return True
 
-    def help_quit(self):
+    """ def help_quit(self):
         '''defining help quit'''
         print ("syntax: quit"),
-        print ("-- terminates the application")
+        print ("-- terminates the application") """
 
     def do_EOF(self, arg):
         '''EOF command to exit the program'''
         return True
 
-    def help_EOF(self):
+    """ def help_EOF(self):
         '''defining help EOF'''
         print ("syntax: EOF"),
-        print ("-- terminates the application")
+        print ("-- terminates the application") """
 
     def emptyline(self):
         ''' Pass on empty line'''
@@ -116,6 +116,38 @@ class HBNBCommand(cmd.Cmd):
                 listin.append(str(value))
             print(listin)
 
+    def do_update(self, args):
+        '# updates an instance'
 
+        tokens = args.split()
+        if len(tokens) == 0:
+            print("** class name missing **")
+            return
+        elif (tokens[0] not in storage.class_list()):
+            print("** class doesn't exist **")
+            return
+        elif len(tokens) == 1:
+            print("** instance id missing **")
+            return
+        if len(tokens) == 2:
+            print("** attribute name missing **")
+            return
+        if len(tokens) == 3:
+            print("** value missing **")
+            return
+        else:
+            x = tokens[0] + "." + tokens[1]
+            dic = storage.all()
+            if x not in dic:
+                print ('** on instance found **')
+                return
+            else:
+                arg2 = tokens[2]
+                arg3 = tokens[3].strip('""')
+                setattr(dic[x], arg2, arg3)
+                storage.save()
+                return
+            
+            
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
