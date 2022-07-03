@@ -31,6 +31,10 @@ class FileStorage:
         with open(self.__file_path, "w+") as fil:
             json.dump(copy, fil)
 
+    def pop(self, key):
+        '# pop objects'
+        self.__objects.pop(key)
+
     def reload(self):
         """ deserializes the JSON file"""
         if os.path.exists(FileStorage.__file_path):

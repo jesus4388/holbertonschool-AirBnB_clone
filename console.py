@@ -90,14 +90,15 @@ class HBNBCommand(cmd.Cmd):
         elif len(tokens) < 2:
             print("** instance id missing **")
             return
+
+        x = str(tokens[0]) + "." + str(tokens[1])
+        dic = storage.all()
+        
+        if x in dic:
+            storage.pop(x)
+            storage.save
         else:
-            x = tokens[0] + "." + tokens[1]
-            dic = storage.all()
-            try:
-                del(dic[x])
-                storage.save()
-            except Exception:
-                print("** no instance found **")
+            print("** no instance found **")
 
     def do_all(self, args):
         '# display all'
