@@ -7,7 +7,8 @@ from models.base_model import BaseModel
 import unittest
 from models import storage
 from models import base_model
-
+from unittest.mock import patch
+from io import StringIO
 
 class test_console(unittest.TestCase):
     '# test console'
@@ -35,3 +36,13 @@ class test_console(unittest.TestCase):
     def test_empty_line(self):
         '# test line'
         self.assertEqual("", "")
+
+    def test_EOF(self):
+        '# check EOF'
+        with patch ("sys.stdout", new=StringIO()) as output:
+            pass
+
+    def test_exit(self):
+        '# check exit'
+        with patch ("sys.stdout", new=StringIO()) as output:
+            pass
