@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         print ("-- terminates the application") """
 
     def emptyline(self):
-        ''' Pass on empty line'''
+        ''' return empty line'''
         pass
 
     def do_create(self, arg):
