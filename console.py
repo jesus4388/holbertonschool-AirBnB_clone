@@ -50,13 +50,12 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) == 0:
             print("** class name missing **")
             return
-        elif arg != "BaseModel":
-            print("** class doesn't exist **")
-            return
-        else:
+        try:
             x = eval(arg)()
             x.save()
             print(x.id)
+        except Exception:
+            print("** class doesn't exist **")
 
     def do_show(self, args):
         tokens = args.split()
