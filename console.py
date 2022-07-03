@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif (tokens[0] not in storage.class_list()):
             print("** class doesn't exist **")
-        elif tokens[1] is None:
+        elif len(tokens) < 2:
             print("** instance id missing **")
         else:
             x = tokens[0] + "." + tokens[1]
@@ -76,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             x = tokens[0] + "." + tokens[1]
-            dic = storaige.all()
+            dic = storage.all()
             try:
                 del(dic[x])
             except Exception:
@@ -84,12 +84,21 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         tokens = args.split()
-        if (tokens[0] not in storage.class_list()):
-            print("** class doesn't exist **")
+        objects = storage.all()
+        listin = []
+
+        if len(tokens) > 0:
+            if tokens[0] not in storage.class_list():
+                print("** class doesn't exist **")
+                return
+            for key, value in objects.items():
+                if tokens[0] == value.__class__.__name__:
+                    listin.append(str(value))
+            print(listin)
         else:
-            x = tokens[0]
-            dic = storage.all()
-            print(dic[x])
+            for key, value in objects.items():
+                listin.append(str(value))
+            print(listin)
 
 
 if __name__ == '__main__':
