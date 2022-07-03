@@ -45,10 +45,12 @@ class HBNBCommand(cmd.Cmd):
         """
         create class name
         """
-        if arg == "":
+        if not arg:
             print("** class name missing **")
+            return
         elif arg != "BaseModel":
             print("** class doesn't exist **")
+            return
         else:
             x = eval(arg)()
             x.save()
@@ -58,10 +60,13 @@ class HBNBCommand(cmd.Cmd):
         tokens = args.split()
         if len(tokens) == 0:
             print("** class name missing **")
+            return
         elif (tokens[0] not in storage.class_list()):
             print("** class doesn't exist **")
+            return
         elif len(tokens) < 2:
             print("** instance id missing **")
+            return
         else:
             x = tokens[0] + "." + tokens[1]
             dic = storage.all()
@@ -74,10 +79,13 @@ class HBNBCommand(cmd.Cmd):
         tokens = args.split()
         if len(tokens) == 0:
             print("** class name missing **")
+            return
         elif (tokens[0] not in storage.class_list()):
             print("** class doesn't exist **")
+            return
         elif len(tokens) < 2:
             print("** instance id missing **")
+            return
         else:
             x = tokens[0] + "." + tokens[1]
             dic = storage.all()
@@ -87,6 +95,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_all(self, args):
+        '# display all'
         tokens = args.split()
         objects = storage.all()
         listin = []
