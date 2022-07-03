@@ -3,6 +3,7 @@
 
 import cmd
 import string, sys
+import sys
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -13,10 +14,16 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     '''defining HBNBCommand'''
-    def __init__(self):
+   """ def __init__(self):
         '''defining init'''
         cmd.Cmd.__init__(self)
-        self.prompt = '(hbnb) '
+        self.prompt = '(hbnb) '"""
+
+    if sys.stidin and sys.stdin.isatty():
+        prompt = "(hbnb) "
+
+    else:
+        prompt = "(hbnb) \n"
 
     def do_quit(self, arg):
        '''Quit command to exit the program'''
@@ -45,10 +52,12 @@ class HBNBCommand(cmd.Cmd):
         """
         create class name
         """
-        if arg == "":
+        if not arg:
             print("** class name missing **")
+            return
         elif arg != "BaseModel":
             print("** class doesn't exist **")
+            return
         else:
             x = eval(arg)()
             x.save()
@@ -58,10 +67,13 @@ class HBNBCommand(cmd.Cmd):
         tokens = args.split()
         if len(tokens) == 0:
             print("** class name missing **")
+            return
         elif (tokens[0] not in storage.class_list()):
             print("** class doesn't exist **")
+            return
         elif len(tokens) < 2:
             print("** instance id missing **")
+            return
         else:
             x = tokens[0] + "." + tokens[1]
             dic = storage.all()
@@ -74,10 +86,13 @@ class HBNBCommand(cmd.Cmd):
         tokens = args.split()
         if len(tokens) == 0:
             print("** class name missing **")
+            return
         elif (tokens[0] not in storage.class_list()):
             print("** class doesn't exist **")
+            return
         elif len(tokens) < 2:
             print("** instance id missing **")
+            return
         else:
             x = tokens[0] + "." + tokens[1]
             dic = storage.all()
@@ -87,6 +102,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_all(self, args):
+        '# display all'
         tokens = args.split()
         objects = storage.all()
         listin = []
