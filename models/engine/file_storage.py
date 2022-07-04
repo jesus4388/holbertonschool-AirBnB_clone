@@ -53,4 +53,5 @@ class FileStorage:
     @staticmethod
     def class_list():
         """list of all classes"""
-        return ["BaseModel", "User", "City", "State", "Amenity", "Place", "Review"]
+        return ["BaseModel", "User", "City", "State",
+                "Amenity", "Place", "Review"]
