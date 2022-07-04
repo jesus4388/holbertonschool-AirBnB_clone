@@ -2,19 +2,7 @@
 
 ### Description of the project
 
-This project is part of a larger project in order to build a copy of the AirBnb web site (from back-end to front-end).
-
-This project is the first step and built the back-end console of the website. This back-end is created from scratch and do not use any framework as learning purpose.
-
-### Description of the back-end system
-The back-end system is based on 3 components coded in Python 3:
-
-1. **The storage engine**, based on a JSON file, it handle all the process of serialization/deserialization of objects.
-
-2. **The model system**, this component contains all the function in order to create, update, delete, display any object stored in the storage engine. 
-It will handle the creation of object by uniq ID, update creation time and all others attributes depending of the specific object.
-
-3. **The console system**, is a basic console used to control the storage_engine by using any function of the model system.
+This project is about creating a console for a future web application project. The console will be able to update, create, and save instances into a file using the JSON syntax for storing the data for the web site.
 
 ### How to use
 * Download all part of the project
@@ -22,6 +10,25 @@ It will handle the creation of object by uniq ID, update creation time and all o
 * Launch the console.py
 
 * Enter any command
+
+## Example
+(hbnb) create User 
+
+7ad92afc-c549-4b15-b97b-91071ffa3866 
+
+(hbnb) update User 7ad92afc-c549-4b15-b97b-91071ffa3866 first_name "Juan" 
+
+(hbnb) show User 7ad92afc-c549-4b15-b97b-91071ffa3866 
+
+[User] (7ad92afc-c549-4b15-b97b-91071ffa3866) {'id': '7ad92afc-c549-4b15-b97b-91071ffa3866', 'created_at': datetime.datetime(2022, 7, 3, 20, 28, 21, 944913), 'updated_at': datetime.datetime(2022, 7, 3, 20, 29, 4, 862400), 'first_name': 'Juan'} 
+
+(hbnb) destroy User 7ad92afc-c549-4b15-b97b-91071ffa3866 
+
+(hbnb) show User 7ad92afc-c549-4b15-b97b-91071ffa3866 
+
+** no instance found ** 
+
+(hbnb) 
 
 ## Technologies
 * Shell scripts tested using bash
