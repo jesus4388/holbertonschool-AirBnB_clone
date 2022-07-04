@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
             if tokens[0] not in storage.class_list():
                 print("** class doesn't exist **")
                 return
-            countt = 0 
+            countt = 0
             for key, value in objects.items():
                 if tokens[0] == value.__class__.__name__:
                     countt += 1
