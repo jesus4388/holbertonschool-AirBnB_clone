@@ -79,5 +79,6 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(type(self.place_2.latitude), float)
         self.assertEqual(type(self.place_2.longitude), float)
 
+
 if __name__ == '__main__':
     unittest.main()

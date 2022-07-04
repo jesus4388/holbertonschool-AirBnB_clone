@@ -15,11 +15,11 @@ class FileStorage_Test(unittest.TestCase):
 
     def setUp(self):
         """Set up"""
-       try:
+        try:
             remove('file.json')
         except Exception:
             pass
-        FileStorage._FileStorage__objects = {} 
+        FileStorage._FileStorage__objects = {}
 
     def tearDown(self):
         """Tear down"""
@@ -100,6 +100,7 @@ class FileStorage_Test(unittest.TestCase):
         os.remove("file.json")
         if os.path.isfile('file.jsonSAVE'):
             os.rename("file.jsonSAVE", "file.json")
+
 
 if __name__ == '__main__':
     unittest.main()
