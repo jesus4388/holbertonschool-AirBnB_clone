@@ -31,8 +31,27 @@ class HBNBCommand(cmd.Cmd):
         if args.find(".all()") != -1:
             line = args.split(".")
             args = "all " + line[0]
+        if args.find(".show()") != -1:
+            line = args.split(".")
+            args = "show " + line[0]
         return (args)
-   	
+
+    def do_count(self, args):
+        '''defining count'''
+        tokens = args.split()
+        objects = storage.all()
+        listin = []
+
+        if len(tokens) > 0:
+            if tokens[0] not in storage.class_list():
+                print("** class doesn't exist **")
+                return
+            countt = 0 
+            for key, value in objects.items():
+                if tokens[0] == value.__class__.__name__:
+                    countt += 1
+            print(countt)
+
     def do_quit(self, arg):
         '''Quit command to exit the program'''
         return True
