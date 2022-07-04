@@ -31,9 +31,6 @@ class HBNBCommand(cmd.Cmd):
         if args.find(".all()") != -1:
             line = args.split(".")
             args = "all " + line[0]
-        if args.find(".show()") != -1:
-            line = args.split(".")
-            args = "show " + line[0]
         return (args)
 
     def do_count(self, args):
