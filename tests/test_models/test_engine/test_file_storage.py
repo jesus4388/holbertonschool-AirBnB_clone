@@ -15,19 +15,26 @@ class FileStorage_Test(unittest.TestCase):
 
     def setUp(self):
         """Set up"""
-        pass
+       try:
+            remove('file.json')
+        except Exception:
+            pass
+        FileStorage._FileStorage__objects = {} 
 
     def tearDown(self):
         """Tear down"""
-        pass
+        try:
+            remove('file.json')
+        except Exception:
+            pass
 
-    def test_00_private_attrs(self):
+    def test_private_attrs(self):
         """Validate attributes are private."""
         fs = FileStorage()
         self.assertTrue(hasattr(FileStorage, "_FileStorage__file_path"))
         self.assertTrue(hasattr(FileStorage, "_FileStorage__objects"))
 
-    def test_01_storage_all(self):
+    def test_storage_all(self):
         """Tests the all method"""
         fs = FileStorage()
         self.assertEqual(type(fs.all()), dict)
@@ -45,7 +52,7 @@ class FileStorage_Test(unittest.TestCase):
         self.assertTrue("BaseModel.{}".format(b2.id) in obj_dict)
         self.assertTrue("BaseModel.{}".format(b3.id) in obj_dict)
 
-    def test_02_new(self):
+    def test_new(self):
         """Tests the new method"""
         fs = FileStorage()
         fs.new(BaseModel())
@@ -59,7 +66,7 @@ class FileStorage_Test(unittest.TestCase):
         with self.assertRaises(AttributeError):
             fs.new(1)
 
-    def test_03_save(self):
+    def test_save(self):
         """Tests the save method"""
         fs = FileStorage()
         b = BaseModel()
@@ -70,7 +77,7 @@ class FileStorage_Test(unittest.TestCase):
         self.assertTrue(upd != b.updated_at)
         self.assertTrue(os.path.exists("file.json"))
 
-    def test_04_reload(self):
+    def test_reload(self):
         """Test the reload method."""
         fs = FileStorage()
         b = BaseModel()
