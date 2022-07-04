@@ -23,6 +23,16 @@ class HBNBCommand(cmd.Cmd):
     else:
         prompt = "(hbnb) \n"
 
+    def precmd(self, args):
+        args = args.replace('"', "")
+        if args.find(".count()") != -1:
+            line = args.split(".")
+            args = "count " + line[0]
+        if args.find(".all()") != -1:
+            line = args.split(".")
+            args = "all " + line[0]
+        return (args)
+   	
     def do_quit(self, arg):
         '''Quit command to exit the program'''
         return True
