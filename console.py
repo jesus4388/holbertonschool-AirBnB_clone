@@ -34,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
         return (args)
 
     def do_count(self, args):
-        '''defining count'''
+        '# Counts the number of instances'
         tokens = args.split()
         objects = storage.all()
         listin = []
@@ -50,29 +50,19 @@ class HBNBCommand(cmd.Cmd):
             print(countt)
 
     def do_quit(self, arg):
-        '''Quit command to exit the program'''
+        '# Quit command to exit the program'
         return True
-
-    """ def help_quit(self):
-        '''defining help quit'''
-        print ("syntax: quit"),
-        print ("-- terminates the application") """
 
     def do_EOF(self, arg):
         '''EOF command to exit the program'''
         return True
 
-    """ def help_EOF(self):
-        '''defining help EOF'''
-        print ("syntax: EOF"),
-        print ("-- terminates the application") """
-
     def emptyline(self):
-        ''' return empty line'''
+        '# Returns empty line'
         pass
 
     def do_create(self, arg):
-        """ create class name """
+        '# Creates a new instance of the class'
         if len(arg) == 0:
             print("** class name missing **")
             return
@@ -105,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, args):
-        '# delete an instance'
+        '# Deletes an instance'
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -128,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, args):
-        '# display all'
+        '# Displays all string representation of the instances'
         tokens = args.split()
         objects = storage.all()
         listin = []
@@ -147,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
             print(listin)
 
     def do_update(self, args):
-        '# updates an instance'
+        '# Updates an instance'
 
         tokens = args.split()
         if len(tokens) == 0:
