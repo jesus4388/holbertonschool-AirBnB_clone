@@ -3,5 +3,6 @@ header{
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #cccccc;
-    background-image: url("logo.png");
+    background-image: url("/holbertonschool-AirBnB_clone/web_static/images/logo.png"); 
+    background-repeat: no-repeat;
 }
