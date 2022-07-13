@@ -40,6 +40,7 @@ div.locations h4 {
 div.amenities{
     height: 100%;
     width: 25%;
+
 }
 div.amenities h3 {
     font-weight: 600;
@@ -54,17 +55,18 @@ div.amenities h4 {
 .popover{
     visibility: hidden;
     background-color: #FAFAFA;
-    margin-left: 0%;
+    width: 100%;
     height: auto;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    margin-top: 25px;
     position: relative;
+    padding-inline-start: 0;
+    margin-left: -1px;
 }
 .popover h2{
     font-size: 16px;
-    margin-top: 35px;
-    margin-bottom: 0;
+    margin-top: 30px;
+    margin-left: 16px;
 }
 .popover li{
     margin-bottom: 20px;
@@ -74,7 +76,7 @@ div.amenities h4 {
     top: 30px;
     margin-block-end: 30px;
     padding-inline-start: 0;
-    margin-left: 15px
+    margin-left: 30px;
 }
 div.locations:hover .popover{
     visibility: visible;
